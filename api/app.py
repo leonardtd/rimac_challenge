@@ -53,7 +53,7 @@ def predict():
     #Cargar el modelo y generar prediccion
     model = load_models()
     preds = model.predict_proba(oh_x_test)[0]
-    pred = preds[np.argmax(preds)]
+    pred = preds[1] #1: La probabilidad de que sea positivo
     print(preds)
     response = json.dumps({'prob':str(round(pred, 2))})
     return response, 200
